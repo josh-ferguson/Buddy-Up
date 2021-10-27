@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buddy Up</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+<header>
+  <div class="header">
+    <h1>Buddy Up</h1>
+    <%if (loggedIn != undefined) { %>
+    <img class="profilePic" src="/images/profilePic.png" alt="profilePic">
+    <% usersName.forEach(usersName => { %>
+    <div class="profileName">
+      <%= usersName.fName %> <%= usersName.lName %>
+    </div>
+    <% }) %>
+    <img class="bell" src="/images/bell.png" alt="bell">
+    <a href="Buddy">
+      <img class="messageIcon" src="/images/message.png" alt="message">
+    </a>
+    <%}%>
+  </div>
+</header>
+
+<nav>
+  <ul class="webNav">
+     <li><a href="index">Home</a></li>
+     <li><a class="active" href="Forums">Forums</a></li>
+     <li><a href="Buddy">Buddy</a></li>
+     <%if (loggedIn == undefined) { %>
+     <li id="navRegister"><a href="Register">Register</a></li>
+     <li id="navLogin"><a href="Login">Login</a></li>
+     <% }else{ %>
+       <form action="/logout" method="POST">
+         <button class="logout" type="submit">Log Out</button>
+       </form>
+     <%}%>
+   </ul>
+</nav>
+<div class="pageContainer2">
+
+  <div class="repliesContainer">
+
+    <section class="repliesListed">
+        <button type="button" onclick="location.href='/Forums';" name="back">&larr; Back</button>
+        <div class="indivReplies">
+          <div class="userName-forum"><%= replyPost.name %></div>
+          <div class="forumBody"><%= replyPost.body %></div>
+
+        </div>
+    </section>
+
+    <hr class="mainHR">
+
+    <div class="reply">
+      <form class="replyForm" action=<%= passparams.postID %> method="post">
+        <textarea id="replyInput" name="replyInput" placeholder="Comment" rows="4" cols="50" required></textarea><br>
+
+        <input type="submit" value="Comment">
+      </form>
+    </div>
+
+
+    <section class="repliesListed">
+      <% if (noReplies.noReplies == 0) { %>
+        <% comments.forEach(comments => { %>
+          <div class="indivComments">
+            <div class="userName-forum"><%= comments.name %></div>
+            <div class="forumBody"><%= comments.body %></div>
+            <hr class="comentHR">
+
+          </div>
+        <% }) %>
+      <% } %>
+
+    </section>
+
+
+
+</div>
+
+</div>
+
+<footer>
+  <h2>Buddy Up</h2>
+
+  <ul class="footerLinksOne">
+    <li><a href="index">Home</a></li>
+    <li><a href="Forums">Forums</a></li>
+    <li><a href="Buddy">Buddy</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

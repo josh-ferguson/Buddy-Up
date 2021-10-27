@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buddy Up</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+  <div class="header">
+    <h1>Buddy Up</h1>
+    <%if (loggedIn != undefined) { %>
+    <img class="profilePic" src="images/profilePic.png" alt="profilePic">
+    <% usersName.forEach(usersName => { %>
+    <div class="profileName">
+      <%= usersName.fName %> <%= usersName.lName %>
+    </div>
+    <% }) %>
+    <img class="bell" src="images/bell.png" alt="bell">
+    <a href="Buddy">
+      <img class="messageIcon" src="images/message.png" alt="message">
+    </a>
+    <%}%>
+  </div>
+</header>
+
+<nav>
+  <ul class="webNav">
+     <li><a href="index">Home</a></li>
+     <li><a href="Forums">Forums</a></li>
+     <li><a class="active" href="Buddy">Buddy</a></li>
+     <%if (loggedIn == undefined) { %>
+     <li id="navRegister"><a href="Register">Register</a></li>
+     <li id="navLogin"><a href="Login">Login</a></li>
+     <% }else{ %>
+       <form action="/logout" method="POST">
+         <button class="logout" type="submit">Log Out</button>
+       </form>
+     <%}%>
+   </ul>
+</nav>
+
+<h4>Match with a buddy?</h4>
+
+<div class="pageContainer3">
+
+  <% if (message.length > 0) { %>
+      <div class="alert-login"><%= message %></div>
+  <% } %>
+
+  <form class="matchForm" action="/match" method="post">
+    <h5>Fill out this information form to match with someone</h5>
+    <label for="courseType">What course are you studying?</label><br>
+    <select id="courseDropDown" name="courseType" required>
+      <option value="" disabled selected hidden>Please Choose...</option>
+      <option value="Computing">Computing</option>
+      <option value="ComputerScience">Computer Scienece</option>
+      <option value="Bussiness">Bussiness</option>
+      <option value="Photography">Photography</option>
+      <option value="Engineering">Engineering</option>
+    </select><br><br>
+
+    <label for="prefferedLanguage">What is your preffered language?</label><br>
+    <select class="prefferedLanguageDropDown" name="prefferedLanguage" required>
+      <option value="" disabled selected hidden>Please Choose...</option>
+      <option value="Afrikaans">Afrikaans</option>
+      <option value="Albanian">Albanian</option>
+      <option value="Arabic">Arabic</option>
+      <option value="Armenian">Armenian</option>
+      <option value="Basque">Basque</option>
+      <option value="Bengali">Bengali</option>
+      <option value="Bulgarian">Bulgarian</option>
+      <option value="Catalan">Catalan</option>
+      <option value="Cambodian">Cambodian</option>
+      <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+      <option value="Croatian">Croatian</option>
+      <option value="Czech">Czech</option>
+      <option value="Danish">Danish</option>
+      <option value="Dutch">Dutch</option>
+      <option value="English">English</option>
+      <option value="Estonian">Estonian</option>
+      <option value="Fiji">Fiji</option>
+      <option value="Finnish">Finnish</option>
+      <option value="French">French</option>
+      <option value="Georgian">Georgian</option>
+      <option value="German">German</option>
+      <option value="Greek">Greek</option>
+      <option value="Gujarati">Gujarati</option>
+      <option value="Hebrew">Hebrew</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Hungarian">Hungarian</option>
+      <option value="Icelandic">Icelandic</option>
+      <option value="Indonesian">Indonesian</option>
+      <option value="Irish">Irish</option>
+      <option value="Italian">Italian</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Javanese">Javanese</option>
+      <option value="Korean">Korean</option>
+      <option value="Latin">Latin</option>
+      <option value="Latvian">Latvian</option>
+      <option value="Lithuanian">Lithuanian</option>
+      <option value="Macedonian">Macedonian</option>
+      <option value="Malay">Malay</option>
+      <option value="Malayalam">Malayalam</option>
+      <option value="Maltese">Maltese</option>
+      <option value="Maori">Maori</option>
+      <option value="Marathi">Marathi</option>
+      <option value="Mongolian">Mongolian</option>
+      <option value="Nepali">Nepali</option>
+      <option value="Norwegian">Norwegian</option>
+      <option value="Persian">Persian</option>
+      <option value="Polish">Polish</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Punjabi">Punjabi</option>
+      <option value="Quechua">Quechua</option>
+      <option value="Romanian">Romanian</option>
+      <option value="Russian">Russian</option>
+      <option value="Samoan">Samoan</option>
+      <option value="Serbian">Serbian</option>
+      <option value="Slovak">Slovak</option>
+      <option value="Slovenian">Slovenian</option>
+      <option value="Spanish">Spanish</option>
+      <option value="Swahili">Swahili</option>
+      <option value="Swedish ">Swedish </option>
+      <option value="Tamil">Tamil</option>
+      <option value="Tatar">Tatar</option>
+      <option value="Telugu">Telugu</option>
+      <option value="Thai">Thai</option>
+      <option value="Tibetan">Tibetan</option>
+      <option value="Tonga">Tonga</option>
+      <option value="Turkish">Turkish</option>
+      <option value="Ukrainian">Ukrainian</option>
+      <option value="Urdu">Urdu</option>
+      <option value="Uzbek">Uzbek</option>
+      <option value="Vietnamese">Vietnamese</option>
+      <option value="Welsh">Welsh</option>
+      <option value="Xhosa">Xhosa</option>
+    </select><br><br>
+
+    <label for="gender">What is your Gender?</label><br>
+    <select class="genderDropDown" name="gender" required>
+      <option value="" disabled selected hidden>Please Choose...</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br><br>
+
+    <label for="interests">Select up to three of your interests from the options bellow:</label><br>
+    <input id="Sports" type="checkbox" name="interests" value="Sports">
+    <label for="Sports">Sports</label>
+    <input id="Drinking" type="checkbox" name="interests" value="Drinking">
+    <label for="Drinking">Drinking</label>
+    <input id="Exercise" type="checkbox" name="interests" value="Exercise">
+    <label for="Exercise">Exercise</label><br>
+
+    <input id="Reading" type="checkbox" name="interests" value="Reading">
+    <label for="Reading">Reading</label>
+    <input id="Movies" type="checkbox" name="interests" value="Movies">
+    <label for="Movies">Movies</label>
+    <input id="Coffe" type="checkbox" name="interests" value="Coffe">
+    <label for="Coffe">Coffe</label><br>
+
+    <input id="Gaming" type="checkbox" name="interests" value="Gaming">
+    <label for="Gaming">Gaming</label>
+    <input id="Art" type="checkbox" name="interests" value="Art">
+    <label for="Art">Art</label>
+    <input id="Music" type="checkbox" name="interests" value="Music">
+    <label for="Music">Music</label><br><br>
+
+
+
+    <input type="submit" value="Submit">
+  </form>
+
+</div>
+
+<footer>
+  <h2>Buddy Up</h2>
+
+  <ul class="footerLinksOne">
+    <li><a href="index">Home</a></li>
+    <li><a href="Forums">Forums</a></li>
+    <li><a href="Buddy">Buddy</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

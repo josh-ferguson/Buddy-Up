@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buddy Up</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+  <div class="header">
+    <h1>Buddy Up</h1>
+    <%if (loggedIn != undefined) { %>
+    <img class="profilePic" src="images/profilePic.png" alt="profilePic">
+    <% usersName.forEach(usersName => { %>
+    <div class="profileName">
+      <%= usersName.fName %> <%= usersName.lName %>
+    </div>
+    <% }) %>
+    <img class="bell" src="images/bell.png" alt="bell">
+    <a href="Buddy">
+      <img class="messageIcon" src="images/message.png" alt="message">
+    </a>
+    <%}%>
+  </div>
+</header>
+
+<nav>
+  <ul class="webNav">
+     <li><a href="index">Home</a></li>
+     <li><a class="active" href="Forums">Forums</a></li>
+     <li><a href="Buddy">Buddy</a></li>
+     <%if (loggedIn == undefined) { %>
+     <li id="navRegister"><a href="Register">Register</a></li>
+     <li id="navLogin"><a href="Login">Login</a></li>
+     <% }else{ %>
+       <form action="/logout" method="POST">
+         <button class="logout" type="submit">Log Out</button>
+       </form>
+     <%}%>
+   </ul>
+</nav>
+<div class="pageContainerForum">
+  <div class="Post">
+    <form class="postForm" action="/postForm" method="post">
+      <textarea id="postInput" name="postInput" placeholder="New Post" rows="4" cols="50" required></textarea><br>
+
+      <input type="submit" value="Post">
+    </form>
+  </div>
+
+  <section class="forumsListed">
+    <% posts.forEach(posts => { %>
+      <a class="postsLink" href= <%= posts.link %>>
+        <div class="indivForum">
+          <div class="userName-forum"><%= posts.name %></div>
+          <div class="numberOfReplies"><%= posts.replies %></div>
+          <div class="forumBody"><%= posts.body %></div>
+
+        </div>
+      </a>
+    <% }) %>
+  </section>
+
+</div>
+
+<footer>
+  <h2>Buddy Up</h2>
+
+  <ul class="footerLinksOne">
+    <li><a href="index">Home</a></li>
+    <li><a href="Forums">Forums</a></li>
+    <li><a href="Buddy">Buddy</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

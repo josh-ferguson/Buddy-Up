@@ -1,0 +1,941 @@
+*{
+  box-sizing: border-box;
+  font-family: Garamond;
+}
+
+body{
+  background-color: #102743;
+  margin: 0;
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+form select, input{
+  font-size: 110%;
+}
+
+.pageContainer{
+  padding-bottom: 114px;
+}
+
+.pageContainerForum{
+  padding-bottom: 95px;
+}
+
+.pageContainer2{
+  padding-top: 1px;
+  padding-bottom: 70px;
+  background-color: #B39726;
+  margin: 0;
+  height: 100%;
+  position: relative;
+  min-height: 80vh;
+}
+
+.pageContainer3{
+  background-color: #B39726;
+  margin: 0;
+  height: 100%;
+  position: relative;
+  min-height: 75vh;
+  padding-top: 10px;
+}
+
+.pageContainer4{
+  padding-bottom: 150px;
+}
+
+h1{
+  color: white;
+  font-size: 300%;
+  margin-left: 16px;
+}
+
+h2{
+  color: white;
+  margin-left: 16px;
+  float: left;
+}
+
+h3{
+  text-align: center;
+  color: #102743;
+  font-size: 200%;
+}
+
+h4{
+  color: white;
+  font-size: 200%;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h5{
+  color: #102743;
+  font-size: 150%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h6{
+  color: white;
+  text-align: center;
+  font-size: 150%;
+  margin-top: 30px;
+}
+
+form [type=submit], button{
+  cursor: pointer;
+}
+
+.boxHeadings{
+  color: white;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 200%;
+}
+
+.header{
+  width: 100%;
+}
+
+.bell{
+  position: absolute;
+  right: 2vw;
+  top: 0;
+  cursor: pointer;
+}
+
+.messageIcon{
+  position: absolute;
+  right: 8vw;
+  top: 0;
+  cursor: pointer;
+}
+
+.profilePic{
+  position: absolute;
+  right: 50vw;
+  top: -1vh;
+  border-radius: 50%;
+  height: 80px;
+  width: auto;
+}
+
+.profileName{
+  position: absolute;
+  right: 49vw;
+  top: 1vh;
+  transform: translate(100%, 0);
+  font-size: 200%;
+  color: white;
+  width: 30vw;
+}
+
+nav {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer{
+  background-color: #55A4AD;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 114px;
+  color: white;
+  margin-top: 0;
+}
+
+.webNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #55A4AD;
+  font-size: 200%;
+  height: 64px;
+}
+
+.webNav li{
+  float: left;
+  border-right:1px solid #102743;
+}
+
+.webNav li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.webNav li a:hover:not(.active) {
+  background-color: #2f7982;
+}
+
+.webNav .active {
+  background-color: #55A4AD;
+  color: #102743;
+  text-decoration: underline;
+}
+
+#navRegister{
+  float: right;
+}
+
+.footerLinksOne{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  float: left;
+  margin-left: 20%;
+  margin-bottom: 30px;
+}
+
+.footerLinksOne li{
+  margin-top: 10px;
+}
+
+.footerLinksOne li a{
+  color: white;
+}
+
+#navLogin{
+  border-left:1px solid #102743;
+  float: right;
+}
+
+.logout{
+  float: right;
+  height: 64px;
+  width: auto;
+  font-size: 120%;
+  background-color: #55A4AD;
+  color: white;
+  border: none;
+  border-left: 1px solid #102743;
+}
+
+.logout:hover{
+  background-color: #2f7982;
+}
+
+.container{
+  position: relative;
+}
+
+#handshake{
+  border-radius: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 50px;
+  opacity: 80%;
+  filter: brightness(120%);
+}
+
+.topCenter{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #102743;
+  font-size: 600%;
+  font-size: 6vw;
+  font-weight: bold;
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  color: #102743;
+  /* font-size: 160%; */
+  font-size: 1.7vw;
+  font-weight: bold;
+}
+
+.createAnAcc button{
+  font-size: 120%;
+  margin-top: 20px;
+  background-color: #55A4AD;
+  color: white;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.registrationContainer{
+  border-radius: 16px;
+  background-color: white;
+  margin: auto;
+  width: 30%;
+  margin-top: 50px;
+  padding-bottom: 10px;
+}
+
+.loginContainer{
+  border-radius: 16px;
+  background-color: white;
+  margin: auto;
+  width: 30%;
+  margin-top: 50px;
+  padding-bottom: 10px;
+}
+
+.registrationForm, .loginForm{
+  margin-left: 20%;
+}
+
+.registrationForm input, select, .loginForm input, select{
+  width: 70%;
+}
+
+.registrationForm input[type=submit], .loginForm input[type=submit]{
+  border-radius: 16px;
+  color: white;
+  background-color: #55A4AD;
+  font-weight: bold;
+  cursor: pointer;
+  height: 40px;
+  border-color: #102743
+}
+
+.orLogin, .orRegister{
+  text-align: center;
+}
+
+.postForm{
+  margin-top: 10px;
+  /* text-align: center; */
+}
+
+.replyForm{
+  margin-top: 10px;
+}
+
+.postForm textarea{
+  margin-left: 10%;
+  width: 80%;
+  font-size: 150%;
+  border-radius: 16px;
+}
+
+.replyForm textarea{
+  margin-left: 10%;
+  width: 80%;
+  font-size: 150%;
+  border-radius: 16px;
+  border: 1px solid;
+}
+
+.postForm input[type=submit]{
+  font-size: 150%;
+  margin-left: 10%;
+  color: white;
+  background-color: #55A4AD;
+  width: 80px;
+}
+
+.replyForm input{
+  font-size: 150%;
+  margin-left: 10%;
+  color: white;
+  background-color: #55A4AD;
+  width: 130px;
+}
+
+.forumsListed{
+  background-color: #B39726;
+  width: 100%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+  height: 100%;
+  position: relative;
+  min-height: 65vh;
+}
+
+.repliesListed{
+  width: 100%;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.repliesListed button{
+  position: absolute;
+  background-color: #855A46;
+  font-size: 120%;
+  margin-left: 50px;
+  margin-top: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.indivForum{
+  background-color: white;
+  border-radius: 16px;
+  border: 1px solid;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.indivReplies{
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+}
+
+.indivComments{
+  margin-left: 15%;
+  margin-right: 15%;
+  position: relative;
+}
+
+.postsLink{
+  text-decoration: none;
+}
+
+.userName-forum{
+  margin-left: 10px;
+  font-size: 150%;
+  color: #102743;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.numberOfReplies{
+  font-size: 120%;
+  color: #102743;
+  text-align: right;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.forumBody{
+  font-size: 120%;
+  color: #102743;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.repliesContainer{
+  background-color: white;
+  border-radius: 16px;
+  margin: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.mainHR{
+  border-color: #102743;
+}
+
+.comentHR{
+  width: 100%;
+}
+
+.alert-login{
+  border-radius: 16px;
+  border: 1px solid;
+  box-shadow: 1px 1px 3px #888;
+  color: #D8000C;
+  background-color: #FFD2D2;
+  width: 30%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.matchForm{
+  border-radius: 16px;
+  background-color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 120%;
+}
+
+.matchForm select{
+  width: 25%;
+}
+
+.matchForm input[type=submit]{
+  border-radius: 16px;
+  background-color: #55A4AD;
+  color: white;
+  font-size: 120%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#Drinking{
+  margin-left: 19px;
+}
+
+#Art{
+  margin-left: 6px;
+}
+
+#Coffe{
+  margin-left: 16px;
+}
+
+#Music{
+  margin-left: 49px;
+}
+
+#matchName{
+  float: left;
+  cursor: pointer;
+}
+
+#matchName:hover{
+  text-decoration: underline;
+}
+
+#unmatchButton{
+  float: left;
+  background-color: #FF8200;
+  border-radius: 16px;
+  font-size: 150%;
+  margin-left: 25px;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.boxContainer{
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(500px, auto);
+}
+
+.messagingBox{
+  grid-column: 1 / 3;
+  grid-row: 1;
+  border-radius: 16px;
+  background-color: #B39726;
+}
+
+.remindersBox{
+  grid-column: 3 / 5;
+  grid-row: 1;
+  border-radius: 16px;
+  background-color: #855A46;
+}
+
+.notesBox{
+  grid-column: 1 / 3;
+  grid-row: 2;
+  border-radius: 16px;
+  background-color: #855A46;
+}
+
+.filesBox{
+  grid-column: 3 / 5;
+  grid-row: 2;
+  border-radius: 16px;
+  background-color: #855A46;
+}
+
+.calendarBox{
+  grid-column: 2 / 4;
+  grid-row: 3;
+  border-radius: 16px;
+  background-color: #855A46;
+}
+
+.messageDisplay{
+  border-radius: 16px;
+  background-color: white;
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 120%;
+  padding: 10px;
+  height: 350px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#sendMessageButton{
+  border-radius: 16px;
+  background-color: #55A4AD;
+  color: white;
+  font-size: 150%;
+  margin-left: 20px;
+  width: 150px;
+  margin-top: 20px;
+}
+
+.modalContainer{
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.modalContainer.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal{
+  background-color: white;
+  width: 900px;
+  height: 800px;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  border: 1px solid;
+  box-shadow: 0 10px 4px rgba(0, 0, 0, 0.2)
+}
+
+.modalHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid;
+  padding: 20px 40px;
+}
+
+.modalTitle{
+  color: #102743;
+  font-size: 200%;
+}
+
+.closeMe{
+  font-size: 120%;
+}
+
+.modalBody{
+  padding: 20px 40px;
+  height: 80%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.messageSent{
+  margin-top: 5px;
+  width: 80%;
+  height: auto;
+  background-color: #2BA2FF;
+  color: white;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.messageRecieved{
+  margin-top: 5px;
+  width: 80%;
+  height: auto;
+  background-color: #D1D1D1;
+  color: black;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.messageSentDisplay{
+  margin-top: 15px;
+  width: 100%;
+  height: auto;
+  background-color: #2BA2FF;
+  color: white;
+  border-radius: 16px;
+  padding: 10px;
+  font-size: 150%;
+}
+
+.messageRecievedDisplay{
+  margin-top: 15px;
+  width: 100%;
+  height: auto;
+  background-color: #D1D1D1;
+  color: black;
+  border-radius: 16px;
+  padding: 10px;
+  font-size: 150%;
+}
+
+.sendMessageArea{
+  padding: 20px 40px;
+  position: absolute;
+  bottom: 100px;
+  width: 900px;
+  max-width: 90vw;
+}
+
+.sendMessageForm input[type=text]{
+  font-size: 120%;
+  width: 700px;
+  max-width: 60vw;
+}
+
+.sendMessageForm input[type=submit]{
+  padding: 5px;
+  border-radius: 16px;
+  background-color: #55A4AD;
+  color: white;
+  font-size: 120%;
+  width: 80px;
+  max-width: 20%;
+}
+
+.noMessages{
+  text-align: center;
+  font-size: 120%;
+}
+
+.notesDisplay{
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noteContainers{
+  border-radius: 16px;
+  background-color: white;
+  font-size: 120%;
+  padding: 10px;
+  height: 350px;
+  width: 48%;
+}
+
+.addNotesForm{
+  margin: 10px;
+}
+
+.addNotesForm input[type=text]{
+  font-size: 120%;
+  width: 550px;
+  max-width: 40vw;
+}
+
+.addNotesForm input[type=submit]{
+  padding: 5px;
+  background-color: #55A4AD;
+  color: white;
+  font-size: 120%;
+  width: 80px;
+  max-width: 20%;
+}
+
+.boxHeadings{
+  cursor: pointer;
+}
+
+.boxHeadings:hover {
+    text-decoration: underline;
+}
+
+.notesBody{
+  padding: 20px 40px;
+  height: 80%;
+  overflow-y: auto;
+}
+
+.stickyNotesOne{
+  background-color: #F3FC9D;
+  font-size: 120%;
+  padding: 10px;
+  height: 350px;
+  width: 48%;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.stickyNotesTwo{
+  background-color: #F3FC9D;
+  font-size: 120%;
+  padding: 10px;
+  height: 350px;
+  width: 48%;
+  margin-left: 52%;
+  margin-bottom: 30px;
+}
+
+.uploadFileForm{
+  margin: 10px;
+}
+
+.uploadFileForm input[type=submit]{
+  padding: 5px;
+  background-color: #55A4AD;
+  color: white;
+  font-size: 120%;
+  width: 130px;
+  max-width: 20%;
+}
+
+.uploadFileForm input[type=file]{
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 120%;
+}
+
+.filesDisplay{
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.filesBody{
+  padding: 20px 40px;
+  height: 80%;
+  overflow-y: auto;
+}
+
+.downloadLink{
+  font-size: 120%;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.calendarBody{
+ width: 100%;
+}
+
+#calendar {
+  width: 100%;
+  height: 100%;
+}
+
+#modalForCalendar{
+  height: 890px;
+  max-height: 100%;
+  margin-top: -50px;
+}
+
+.eventAdd{
+  border-bottom: 1px solid;
+}
+
+.eventAdd input{
+  margin: 10px;
+}
+
+.eventAdd input[type=text]{
+  width: 500px;
+  max-width: 50vw;
+}
+
+.eventAdd label{
+  margin-left: 10px;
+  font-size: 120%;
+}
+
+.hidden{
+  opacity: 0;
+}
+
+.calendarDisplay{
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+}
+
+#calendarIcon{
+  width: 27vw;
+  border-radius: 16px;
+  height: auto;
+  margin: auto;
+  cursor: pointer;
+}
+
+#calendarIcon:hover{
+  border: 1px solid blue;
+}
+
+.reminderDisplay{
+  margin-top: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.showReminder{
+  margin-top: 5px;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.showDate{
+  margin: 0;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.reminderBody{
+  margin: 0;
+}
+
+.remindersModalBody{
+  padding: 20px 40px;
+  height: 80%;
+  overflow-y: auto;
+}
+
+.showReminderModel{
+  margin-top: 5px;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-radius: 16px;
+  border: 1px solid;
+  padding: 10px;
+  font-size: 120%;
+}
+
+.matchModalBody{
+  padding: 20px 40px;
+  height: 80%;
+  font-size: 150%;
+}
+
+.matchModalBody div{
+  margin-bottom: 10px;
+}

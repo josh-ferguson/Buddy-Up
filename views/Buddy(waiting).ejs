@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buddy Up</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+  <div class="header">
+    <h1>Buddy Up</h1>
+    <%if (loggedIn != undefined) { %>
+    <img class="profilePic" src="images/profilePic.png" alt="profilePic">
+    <% usersName.forEach(usersName => { %>
+    <div class="profileName">
+      <%= usersName.fName %> <%= usersName.lName %>
+    </div>
+    <% }) %>
+    <img class="bell" src="images/bell.png" alt="bell">
+    <a href="Buddy">
+      <img class="messageIcon" src="images/message.png" alt="message">
+    </a>
+    <%}%>
+  </div>
+</header>
+
+<nav>
+  <ul class="webNav">
+     <li><a href="index">Home</a></li>
+     <li><a href="Forums">Forums</a></li>
+     <li><a class="active" href="Buddy">Buddy</a></li>
+     <%if (loggedIn == undefined) { %>
+     <li id="navRegister"><a href="Register">Register</a></li>
+     <li id="navLogin"><a href="Login">Login</a></li>
+     <% }else{ %>
+       <form action="/logout" method="POST">
+         <button class="logout" type="submit">Log Out</button>
+       </form>
+     <%}%>
+   </ul>
+</nav>
+<div class="pageContainer">
+  <h6>Waiting for a match. You will be notified when you have recieved a match!</h6>
+
+</div>
+
+<footer>
+  <h2>Buddy Up</h2>
+
+  <ul class="footerLinksOne">
+    <li><a href="index">Home</a></li>
+    <li><a href="Forums">Forums</a></li>
+    <li><a href="Buddy">Buddy</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

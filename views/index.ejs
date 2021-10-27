@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buddy Up</title>
+<link rel="stylesheet" href="styles.css">
+<script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+<header>
+  <div class="header">
+    <h1>Buddy Up</h1>
+    <%if (loggedIn != undefined) { %>
+    <img class="profilePic" src="images/profilePic.png" alt="profilePic">
+    <% usersName.forEach(usersName => { %>
+    <div class="profileName">
+      <%= usersName.fName %> <%= usersName.lName %>
+    </div>
+    <% }) %>
+    <img class="bell" src="images/bell.png" alt="bell">
+    <a href="Buddy">
+      <img class="messageIcon" src="images/message.png" alt="message">
+    </a>
+    <%}%>
+  </div>
+</header>
+
+<nav>
+  <ul class="webNav">
+     <li><a class="active" href="index">Home</a></li>
+     <li><a href="Forums">Forums</a></li>
+     <li><a href="Buddy">Buddy</a></li>
+     <%if (loggedIn == undefined) { %>
+       <li id="navRegister"><a href="Register">Register</a></li>
+       <li id="navLogin"><a href="Login">Login</a></li>
+     <% }else{ %>
+       <form action="/logout" method="POST">
+         <button class="logout" type="submit">Log Out</button>
+       </form>
+     <%}%>
+   </ul>
+</nav>
+<div class="pageContainer">
+
+  <div class="container">
+    <img id="handshake" src="images/comunity.jpg" alt="Hand shaking">
+    <div class="topCenter">
+      Buddy Up
+    </div>
+    <div class="centered">
+      Welcom to Buddy Up!<br>
+      Here you will be able to match up with a buddy<br>
+      from your university and course to help you<br>
+      with your studies. Once you have matched with<br>
+      someone you can begin messaging, adding notes, <br>
+      uploading files and even planning meetings using the<br>
+      shared callendar!<br><br>
+      Don't want to match with anyone?<br>
+      No worries, you can still use the forums page for chatting<br>
+      to all your university peers. sign up now using:
+      <form class="createAnAcc" action="/createAnAcc" method="post">
+        <button type="submit" name="createAnAcc">Create an account</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <h2>Buddy Up</h2>
+
+  <ul class="footerLinksOne">
+     <li><a href="index">Home</a></li>
+     <li><a href="Forums">Forums</a></li>
+     <li><a href="Buddy">Buddy</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

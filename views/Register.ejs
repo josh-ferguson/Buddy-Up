@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buddy Up</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+  <h1>Buddy Up</h1>
+
+</header>
+
+<nav>
+  <ul class="webNav">
+     <li><a href="index">Home</a></li>
+     <li><a href="Forums">Forums</a></li>
+     <li><a href="Buddy">Buddy</a></li>
+     <li class="active" id="navRegister"><a href="Register">Register</a></li>
+     <li id="navLogin"><a href="Login">Login</a></li>
+   </ul>
+</nav>
+<div class="pageContainer">
+
+  <% if (message.length > 0) { %>
+      <div class="alert-login"><%= message %></div>
+  <% } %>
+
+  <div class="registrationContainer">
+
+    <h3>Register</h3>
+
+    <form class="registrationForm" action="/Register" method="post">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fName" required><br><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lName" required><br><br>
+      <label for="uni">University:</label><br>
+      <select id="uniDropDown" name="university">
+        <option value="University of Portsmouth">University of Portsmouth</option>
+        <option value="uni2">uni2</option>
+        <option value="uni3">uni3</option>
+        <option value="uni4">uni4</option>
+      </select><br><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+      <label for="confirmPassword">confirm password:</label><br>
+      <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+      <input type="submit" value="Register">
+    </form>
+
+    <div class="orLogin">
+      <p>Or Login using:</p>
+      <a href="Login">Login</a>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <h2>Buddy Up</h2>
+
+  <ul class="footerLinksOne">
+    <li><a href="index">Home</a></li>
+    <li><a href="Forums">Forums</a></li>
+    <li><a href="Buddy">Buddy</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

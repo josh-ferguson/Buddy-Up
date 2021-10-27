@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buddy Up</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="calendar.css">
+<script defer src="script.js"></script>
+<script src='calendar.js'></script>
+
+</head>
+
+<body>
+<header>
+  <div class="header">
+    <h1>Buddy Up</h1>
+    <%if (loggedIn != undefined) { %>
+    <img class="profilePic" src="images/profilePic.png" alt="profilePic">
+    <% usersName.forEach(usersName => { %>
+    <div class="profileName">
+      <%= usersName.fName %> <%= usersName.lName %>
+    </div>
+    <% }) %>
+    <img class="bell" src="images/bell.png" alt="bell">
+    <a href="Buddy">
+      <img class="messageIcon" src="images/message.png" alt="message">
+    </a>
+    <%}%>
+  </div>
+</header>
+
+<nav>
+  <ul class="webNav">
+     <li><a href="index">Home</a></li>
+     <li><a href="Forums">Forums</a></li>
+     <li><a class="active" href="Buddy">Buddy</a></li>
+     <%if (loggedIn == undefined) { %>
+     <li id="navRegister"><a href="Register">Register</a></li>
+     <li id="navLogin"><a href="Login">Login</a></li>
+     <% }else{ %>
+       <form action="/logout" method="POST">
+         <button class="logout" type="submit">Log Out</button>
+       </form>
+     <%}%>
+   </ul>
+</nav>
+<div class="pageContainer">
+  <% matchName.forEach(matchName => { %>
+  <h4 id="matchName"><%= matchName.fName %> <%= matchName.lName %></h4>
+  <% }) %>
+  <form class="unmatchForm" action="unmatch" method="post">
+    <input id="unmatchButton" type="submit" name="unmatch" value="Unmatch">
+  </form>
+
+</div>
+
+
+<div class="pageContainer4">
+
+  <div class="modalContainer" id="matchModalContainer">
+    <div class="modal">
+          <div class="modalHeader">
+            <% matchName.forEach(matchName => { %>
+            <div class="modalTitle">
+              <%= matchName.fName %> <%= matchName.lName %>
+            </div>
+            <button class="closeMe" id="matchCloseMe">&times;</button>
+          </div>
+          <div class="matchModalBody">
+            <div class="matchGender">
+              Gender: <%= matchName.gender %>
+            </div>
+            <div class="matchCourse">
+              Course: <%= matchName.course %>
+            </div>
+            <div class="matchInterests">
+              Interests:
+              <ol>
+                <li><%= matchName.interestOne %></li>
+                <li><%= matchName.interestTwo %></li>
+                <li><%= matchName.interestThree %></li>
+              </ol>
+            </div>
+            <% }) %>
+          </div>
+    </div>
+  </div>
+
+
+
+  <div class="boxContainer">
+    <div class="messagingBox">
+      <h2 class="boxHeadings" id="messageHeading">Message buddy (click for more...)</h2>
+      <div class="messageDisplay">
+
+        <% if (noMessages.noMessages == 1) { %>
+          <div class="noMessages">No messages have been sent yet!</div>
+        <% } %>
+        <% if (noMessages.noMessages == 0) { %>
+        <% messageData.forEach(messageData => { %>
+          <% if (messageData.messageSentBy == "user") { %>
+            <div class="messageSentDisplay">
+              <%= messageData.messageBody %>
+            </div>
+          <% } %>
+          <% if (messageData.messageSentBy == "match") { %>
+            <div class="messageRecievedDisplay">
+              <%= messageData.messageBody %>
+            </div>
+          <% } %>
+        <% }) %>
+        <% } %>
+
+      </div>
+      <button id="sendMessageButton">Message</button>
+    </div>
+
+    <div class="modalContainer" id="messageModalContainer">
+      <div class="modal">
+            <div class="modalHeader">
+              <% matchName.forEach(matchName => { %>
+              <div class="modalTitle">
+                <%= matchName.fName %> <%= matchName.lName %>
+              </div>
+              <% }) %>
+              <button class="closeMe" id="messageCloseMe">&times;</button>
+            </div>
+            <div class="modalBody">
+              <% if (noMessages.noMessages == 1) { %>
+                <div class="noMessages">No messages have been sent yet!</div>
+              <% } %>
+              <% if (noMessages.noMessages == 0) { %>
+              <% messageData.forEach(messageData => { %>
+                <% if (messageData.messageSentBy == "user") { %>
+                  <div class="messageSent">
+                    <%= messageData.messageBody %>
+                  </div>
+                <% } %>
+                <% if (messageData.messageSentBy == "match") { %>
+                  <div class="messageRecieved">
+                    <%= messageData.messageBody %>
+                  </div>
+                <% } %>
+              <% }) %>
+              <% } %>
+            </div>
+            <div class="sendMessageArea">
+              <form class="sendMessageForm" action="/sendMessage" method="post">
+                <input type="text" name="messageValue" placeholder="Aa" required>
+                <input type="submit" name="submitMessage" value="Send">
+              </form>
+            </div>
+      </div>
+    </div>
+
+
+    <div class="remindersBox">
+      <h2 class="boxHeadings" id="remindersHeading">Reminders (click for more...)</h2>
+      <div class="reminderDisplay">
+        <% if (noEvents.noEvents == 0) { %>
+        <% calendarData.forEach(calendarData => { %>
+        <div class="showReminder">
+          <p class="showDate"><%= calendarData.fullDate %></p>
+          <p class="reminderBody"><%= calendarData.body %></p>
+        </div>
+        <% }) %>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="modalContainer" id="remindersModalContainer">
+      <div class="modal">
+            <div class="modalHeader">
+              <div class="modalTitle">
+                Reminders
+              </div>
+              <button class="closeMe" id="remindersCloseMe">&times;</button>
+            </div>
+            <div class="remindersModalBody">
+              <% if (noEvents.noEvents == 0) { %>
+              <% calendarData.forEach(calendarData => { %>
+              <div class="showReminderModel">
+                <p class="showDate"><%= calendarData.fullDate %></p>
+                <p class="reminderBody"><%= calendarData.body %></p>
+              </div>
+              <% }) %>
+              <% } %>
+            </div>
+      </div>
+    </div>
+
+
+    <div class="notesBox">
+      <h2 class="boxHeadings" id="notesHeading">Notes (click for more...)</h2>
+      <div class="notesDisplay">
+        <% if (noNotes.noNotes == 1) { %>
+          <div class="noMessages">No notes have been added yet!</div>
+        <% } %>
+
+        <% if (noNotes.noNotes == 0) { %>
+        <% notesDisplay.forEach(notesDisplay => { %>
+        <% if (notesDisplay.notesRight == 0) { %>
+        <div class="noteContainers">
+          <%= notesDisplay.notesLeft %>
+        </div>
+        <% } %>
+        <% if (notesDisplay.notesRight != 0) { %>
+        <div class="noteContainers">
+          <%= notesDisplay.notesLeft %>
+        </div>
+        <div class="noteContainers">
+          <%= notesDisplay.notesRight %>
+        </div>
+        <% } %>
+        <% }) %>
+        <% } %>
+      </div>
+      <form class="addNotesForm" action="/addNote" method="post">
+        <input type="text" name="addNoteInput" placeholder="New Note..." required>
+        <input type="submit" name="addNote" value="ADD">
+      </form>
+    </div>
+
+    <div class="modalContainer" id="notesModalContainer">
+      <div class="modal">
+            <div class="modalHeader">
+              <div class="modalTitle">
+                Notes
+              </div>
+
+              <button class="closeMe" id="notesCloseMe">&times;</button>
+            </div>
+            <div class="notesBody">
+              <% if (noNotes.noNotes == 1) { %>
+                <div class="noMessages">No messages have been sent yet!</div>
+              <% } %>
+
+              <% if (noNotes.noNotes == 0) { %>
+              <% notesData.forEach(notesData => { %>
+              <% if (notesData.notesRight == 0) { %>
+              <div class="stickyNotesOne">
+                <%= notesData.notesLeft %>
+              </div>
+              <% } %>
+              <% if (notesData.notesRight != 0) { %>
+              <div class="stickyNotesOne">
+                <%= notesData.notesLeft %>
+              </div>
+              <div class="stickyNotesTwo">
+                <%= notesData.notesRight %>
+              </div>
+              <% } %>
+              <% }) %>
+              <% } %>
+            </div>
+            <div class="sendMessageArea">
+              <form class="sendMessageForm" action="/addNote" method="post">
+                <input type="text" name="addNoteInput" placeholder="New Note" required>
+                <input type="submit" name="submitNote" value="ADD">
+              </form>
+            </div>
+      </div>
+    </div>
+
+
+    <div class="filesBox">
+      <h2 class="boxHeadings" id="filesHeading">Files (click for more...)</h2>
+      <div class="filesDisplay">
+        <% if (noFiles.noFiles == 1) { %>
+          <div class="noMessages">No files have been uploaded yet!</div>
+        <% } %>
+        <% if (noFiles.noFiles == 0) { %>
+        <% fileData.forEach(fileData => { %>
+        <a class="downloadLink" href="<%= fileData.fileName %>" download><%= fileData.originalFileName %></a>
+        <% }) %>
+        <% } %>
+      </div>
+      <form class="uploadFileForm" action="/uploadFile" method="post" enctype="multipart/form-data">
+        <input type="file" name="fileUploader" required><br>
+        <input type="submit" name="uploadFile" value="Upload File">
+      </form>
+    </div>
+
+    <div class="modalContainer" id="filesModalContainer">
+      <div class="modal">
+            <div class="modalHeader">
+              <div class="modalTitle">
+                Files
+              </div>
+
+              <button class="closeMe" id="filesCloseMe">&times;</button>
+            </div>
+            <div class="filesBody">
+              <% if (noFiles.noFiles == 1) { %>
+                <div class="noMessages">No files have been uploaded yet!</div>
+              <% } %>
+              <% if (noFiles.noFiles == 0) { %>
+              <% fileData.forEach(fileData => { %>
+              <a class="downloadLink" href="<%= fileData.fileName %>" download><%= fileData.originalFileName %></a>
+              <% }) %>
+              <% } %>
+            </div>
+            <div class="sendMessageArea">
+              <form class="uploadFileForm" action="/uploadFile" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileUploader" required><br>
+                <input type="submit" name="uploadFile" value="UploadFile">
+              </form>
+            </div>
+      </div>
+    </div>
+
+
+    <div class="calendarBox">
+      <h2 class="boxHeadings" id="calendarHeading">Shared calendar (click for more...)</h2>
+      <div class="calendarDisplay">
+        <img id="calendarIcon" src="images/calendar.png" alt="calendarIcon">
+      </div>
+    </div>
+
+    <div class="modalContainer" id="calendarModalContainer">
+      <div class="modal" id="modalForCalendar">
+            <div class="modalHeader">
+              <div class="modalTitle">
+                Shared Calendar
+              </div>
+
+              <button class="closeMe" id="calendarCloseMe">&times;</button>
+            </div>
+            <div class="calendarBody">
+              <form class="eventAdd" action="/addEvent" method="post">
+                <label for="datePicker">Add an event:</label><br>
+                <input type="date" name="datePicker">
+                <input type="text" name="eventValue" placeholder="Add event...">
+                <input type="submit" name="submitEvent" value="Create Event">
+              </form>
+              <div id='calendar'></div>
+              <% if (noEvents.noEvents == 1) { %>
+                <div class="noMessages">To view the calendar an event must be added!</div>
+              <% } %>
+            </div>
+      </div>
+    </div>
+
+    <div class="hidden">
+      <ul id="calendarDatas">
+        <% if (noEvents.noEvents == 0) { %>
+        <% calendarData.forEach(calendarData => { %>
+        <li id="yearC"><%= calendarData.year %></li>
+        <li id="monthC"><%= calendarData.month %></li>
+        <li id="dayC"><%= calendarData.day %></li>
+        <li id="bodyC"><%= calendarData.body %></li>
+        <% }) %>
+        <% } %>
+      </ul>
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+<footer>
+  <h2>Buddy Up</h2>
+
+  <ul class="footerLinksOne">
+    <li><a href="index">Home</a></li>
+    <li><a href="Forums">Forums</a></li>
+    <li><a href="Buddy">Buddy</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
