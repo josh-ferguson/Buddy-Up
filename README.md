@@ -6,9 +6,6 @@ of the database.
 
 During the sign up process the user will be able to select university and course to filter who the user will be paired up with. They will then be able to talk to their “buddy” and hopefully help each other out with any issues that they have.
 
-+ Demo Account (username: sam@gmail.com password: pass)
-+ Demo: https://buddy--up.herokuapp.com/index 
-
 ## Problem to be solved
 The project focuses on the problems that many new, and even some existing students face when integrating into university life. This is often due to young adults moving to a new area on their own away from friends and family for the first time. This can lead to difficulties in settling in, a feeling of isolation, and potentially a negative impact on mental health and wellbeing. The project aims to provide a solution in the form of a web-based application that will provide what has been termed “study buddy” system. The idea behind this is to connect students together in a simple, non-threatening way, to help people who may also be struggling to make contacts and build friendships.
 
